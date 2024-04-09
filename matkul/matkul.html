@@ -16,7 +16,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="home.html">
+          <a href="../home.html">
             <i class='fa fa-home' ></i>
             <span class="links_name">Home</span>
           </a>
@@ -81,8 +81,8 @@
           <button type="button" class="btn btn-edit">
             <a href="#">Edit</a>
           </button>
-          <button type="button" class="btn btn-delete">
-            <a href="#">Hapus</a>
+          <button type="button" class="btn btn-delete" onclick="konfirmasiHapus()">
+            <a href="matkul.html">Hapus</a>
           </button>
         </td>
 			</tr>
@@ -90,5 +90,25 @@
 		</table>
 	   </div>
     </div>
+    <script>
+    function konfirmasiHapus() {
+        if (confirm("Apakah Yakin Data Ini Akan Dihapus?")) {
+          alert("Data berhasil dihapus");
+        } else {
+          alert("Penghapusan data gagal");
+        }
+      }
+
+
+      let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+    if(sidebar.classList.contains("active")){
+      sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    }else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+    </script>
 </body>
 </html>

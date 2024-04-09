@@ -13,24 +13,24 @@
         </header>
         <main>
             <h2>Login</h2>
-            <form action="home.html" method="post">
+            <form action="admin.html" method="post">
                 <table border="1" bgcolor="white">
                     <tr>
                         <td>Username :</td>
                         <td>
-                            <input type="text" name="user" required>
+                            <input type="text" id="user" name="user" required>
                         </td>
                     </tr>
 
                     <tr>
                         <td>Password :</td>
                         <td>
-                            <input type="password" name="pass" required>
+                            <input type="password" id="pass" name="pass" required>
                         </td>
                     </tr>
                 </table>
                 <br>
-                <button type="submit">Login</button>
+                <button type="submit" class="btn btn-primary" onclick="Login()">Login</button>
                 <br><br>
                 Belum daftar? <a href="register.html">Register</a>
             </form>
@@ -38,9 +38,26 @@
         <footer>
             <h4>&copy; Sipintar EST 2024</h4>
         </footer>
-        
-
     </center>
-    
+    <script>
+        function Login() {
+          var user = document.getElementById("user").value;
+          var pass = document.getElementById("pass").value;
+          var ValidUsername = "hasib";
+          var validPassword = "admin1";
+          if (user === "" || pass === "") {
+            alert("Isi semua data terlebih dahulu.");
+            return false;
+          }
+          if (user === ValidUsername && pass === validPassword) {
+            localStorage.setItem("user", user);
+            alert("Login berhasil!");
+            window.location.href = "admin.html";
+          } else {
+            alert("Username atau password salah.");
+            window.location.href = "login.html";
+          }
+        }
+      </script>
 </body>
 </html>

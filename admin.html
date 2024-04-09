@@ -60,9 +60,35 @@
      <div class="home-content">
        <div class="overview-boxes">
           <h2>Selamat Datang Di Halaman Admin!</h2>
+          <div id="tanggal"></div>
         </div>
       </div>
     </div>
   </section>
+  <script>
+    function Waktu() {
+      let date = new Date();
+      let day = date.getDay();
+      let days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+      let month = date.getMonth();
+      let months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+      let year = date.getFullYear();
+      let session = "AM";
+      let formattedDate =
+        days[day] + ", " + date.getDate() + " " + months[month] + " " + year;
+      document.getElementById("tanggal").innerText = formattedDate;
+    }
+    Waktu();
+
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+        sidebarBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+    if(sidebar.classList.contains("active")){
+      sidebarBtn.classList.replace("bx-menu" ,"bx-menu-alt-right");
+    }else
+      sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+  }
+  </script>
 </body>
 </html>
