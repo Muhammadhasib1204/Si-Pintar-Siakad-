@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Halaman Data Mahasiswa</title>
+    <title>Halaman Tambah Mata Kuliah</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -16,31 +16,31 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="../home.html">
+          <a href="../home.php">
             <i class='fa fa-home' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="../admin.html">
+          <a href="../admin.php">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="mahasiswa.html" class="active">
+          <a href="../mahasiswa/mahasiswa.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Data Mahasiswa</span>
           </a>
         </li>
         <li>
-            <a href="../matkul/matkul.html">
+            <a href="matkul.php" class="active">
               <i class='bx bx-list-ul' ></i>
               <span class="links_name">Data Matakuliah</span>
             </a>
           </li>
         <li class="log_out">
-          <a href="login.html">
+          <a href="../login.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
@@ -57,49 +57,25 @@
       </div>
     </nav>
      <div class="home-content">
-        <h3>Data Mahasiswa</h3>
- 	   <button type="button" class="btn btn-tambah">
- 	      <a href="mahasiswa_entry.html ">Tambah Data</a>
-	   </button>
-	   <table class="table-data">
-		<thead>
-		   <tr>
-			<th scope="col" style="width: 20%">Nama Mahasiswa</th>
-			<th scope="col" style="width: 20%">NIM Mahasiswa</th>
-            <th scope="col" style="width: 20%">Kelas</th>
-            <th scope="col" style="width: 20%">Jurusan</th>
-            <th scope="col" style="width: 20%">Prodi</th>
-            <th scope="col" style="width: 20%">Action</th>
-		   </tr>
-		</thead>
-		<tbody>
-		   <tr>
-			<td>Muhammad Hasib</td>
-			<td>2218017</td>
-			<td>A</td>
-            <td>Teknik Informatika</td>
-            <td>Teknik Industri</td>
-			<td>
-                <button type="button" class="btn btn-edit">
-                  <a href="#">Edit</a>
-                </button>
-                <button type="button" class="btn btn-delete"  onclick="konfirmasiHapus()">
-                  <a href="mahasiswa.html">Hapus</a>
-                </button>
-              </td>
-		   </tr>
-		</tbody>
-	   </table>
-    </div>
+        <h3>Input Matakuliah</h3>
+	   <div class="form-login">
+		<form action="">
+		   <label for="nama_matakuliah">Nama Matakuliah</label>
+		   <input class="input" type="text" name="nama_matakuliah" id="nama_matakuliah" placeholder="Nama Matakuliah" />
+		   <label for="jumlah_sks">Jumlah SKS</label>
+			 <input class="input" type="number" name="jumlah_sks" id="jumlah_sks" placeholder="Jumlah SKS" />
+		    <label for="jam_matakuliah">Jam Matakuliah</label>
+			<input class="input" type="text" name="jam_matakuliah" id="jam_matakuliah" placeholder="Jam Matakuliah" />
+            <label for="ruangan_matkul">Ruangan Matakuliah</label>
+		   <input class="input" type="text" name="ruangan_matkul" id="ruangan_matkul" placeholder="Ruangan Matakuliah" style="margin-bottom: 20px" />
+		   <button type="submit" class="btn btn-simpan" name="simpan"  onclick="Simpan()"> Simpan </button>
+		</form>
+	   </div>
     </div>
     <script>
-function konfirmasiHapus() {
-        if (confirm("Apakah Anda yakin menghapus data ini?")) {
-          alert("Data berhasil dihapus");
-        } else {
-          alert("Penghapusan data gagal");
-        }
-      }
+      function Simpan() {
+      alert("Data Berhasil Disimpan");
+    }
 
       let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

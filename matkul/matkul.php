@@ -16,31 +16,31 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="../home.html">
+          <a href="../home.php">
             <i class='fa fa-home' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="../admin.html">
+          <a href="../admin.php">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="../mahasiswa/mahasiswa.html">
+          <a href="../mahasiswa/mahasiswa.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Data Mahasiswa</span>
           </a>
         </li>
         <li>
-            <a href="matkul.html" class="active">
+            <a href="matkul.php" class="active">
               <i class='bx bx-list-ul' ></i>
               <span class="links_name">Data Matakuliah</span>
             </a>
           </li>
         <li class="log_out">
-          <a href="">
+          <a href="../login.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>
@@ -59,7 +59,7 @@
      <div class="home-content">
         <h3>Matakuliah</h3>
 		<button type="button" class="btn btn-tambah">
-		   <a href="matkul_entry.html">Tambah Data</a>
+		   <a href="matkul_entry.php">Tambah Data</a>
 		</button>
 		<table class="table-data">
 		   <thead>
@@ -82,7 +82,7 @@
             <a href="#">Edit</a>
           </button>
           <button type="button" class="btn btn-delete" onclick="konfirmasiHapus()">
-            <a href="matkul.html">Hapus</a>
+            <a href="matkul.php">Hapus</a>
           </button>
         </td>
 			</tr>
@@ -92,7 +92,7 @@
     </div>
     <script>
     function konfirmasiHapus() {
-        if (confirm("Apakah Yakin Data Ini Akan Dihapus?")) {
+        if (confirm("Apakah Anda yakin menghapus data ini?")) {
           alert("Data berhasil dihapus");
         } else {
           alert("Penghapusan data gagal");

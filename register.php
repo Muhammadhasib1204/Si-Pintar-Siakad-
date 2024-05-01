@@ -13,7 +13,7 @@
         </header>
         <main>
             <h2>Daftar</h2>
-            <form action="login.html" method="post">
+            <form action="login.php" method="post">
                 <table border="1" bgcolor="white">
                     <tr>
                         <td>Username :</td>
@@ -42,7 +42,7 @@
                 <br>
                 <button type="register" value="input data" onclick="RegisterForm()">Register</button>
                 <br><br>
-                Sudah Mempunyai Akun? <a href="login.html">Login</a>
+                Sudah Mempunyai Akun? <a href="login.php">Login</a>
             </form>
         </main>
         <footer>

@@ -16,31 +16,31 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="home.html">
+          <a href="home.php">
             <i class='fa fa-home' ></i>
             <span class="links_name">Home</span>
           </a>
         </li>
         <li>
-          <a href="admin.html" class="active">
+          <a href="admin.php" class="active">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="./mahasiswa/mahasiswa.html">
+          <a href="./mahasiswa/mahasiswa.php">
             <i class='bx bx-box' ></i>
             <span class="links_name">Data Mahasiswa</span>
           </a>
         </li>
         <li>
-          <a href="./matkul/matkul.html">
+          <a href="./matkul/matkul.php">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Data Matakuliah</span>
           </a>
         </li>
         <li class="log_out">
-          <a href="login.html">
+          <a href="login.php">
             <i class='bx bx-log-out'></i>
             <span class="links_name">Log out</span>
           </a>

@@ -11,10 +11,10 @@
                 <img src="Logo.png" alt="">
             </div>
             <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="index.html">Daftar Matakuliah</a></li>
-                <li><a href="admin.html">Profil</a></li>
-                <li><a href="login.html" class="btn_login">Log Out</a></li>
+                <li><a href="home.php">Home</a></li>
+                <li><a href="index.php">Daftar Matakuliah</a></li>
+                <li><a href="admin.php">Profil</a></li>
+                <li><a href="login.php" class="btn_login">Log Out</a></li>
                 </ul>
         </header>
         <main>
