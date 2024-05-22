@@ -1,9 +1,25 @@
+<?php
+  include '../koneksi.php';
+  $id = $_GET['id'];
+  if(!isset($_GET['id'])) {
+    echo "
+      <script>
+        alert('Tidak ada ID yang Terdeteksi');
+        window.location = 'mahasiswa.php';
+      </script>
+    ";
+  }
 
+  $sql = "SELECT * FROM tb_mahasiswa WHERE id = '$id'";
+  $result = mysqli_query($koneksi, $sql);
+  $data = mysqli_fetch_assoc($result);
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Halaman Tambah Data Mahasiswa</title>
+    <title>Halaman Edit Data Mahasiswa</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -58,25 +74,25 @@
       </div>
     </nav>
 	<div class="home-content">
-	  <h3>Data Mahasiswa</h3>
+	  <h3>Edit Data Mahasiswa</h3>
 	  <div class="form-login">
 		<form action="mahasiswa-proses.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?= $data['id'] ?>">
 	  	    <label for="nama_mahasiswa">Nama Mahasiswa</label>
-			<input class="input" type="text" name="nama_mahasiswa" id="nama_mahasiswa" placeholder="Nama Mahasiswa"/>
+			<input class="input" type="text" name="nama_mahasiswa" id="nama_mahasiswa" value="<?=$data['Nama']?>"/>
  		    <label for="nim_mahasiswa">NIM Mahasiswa</label>
-			<input class="input" type="text" name="nim_mahasiswa" id="nim_mahasiswa" placeholder="NIM Mahasiswa" />
+			<input class="input" type="number" name="nim_mahasiswa" id="nim_mahasiswa" value="<?=$data['NIM']?>" />
             <label for="kelas">Kelas</label>
-			<input class="input" type="text" name="kelas" id="kelas" placeholder="Kelas" />
+			<input class="input" type="text" name="kelas" id="kelas" value="<?=$data['Kelas']?>" />
             <label for="Jurusan">Jurusan</label>
-			<input class="input" type="text" name="Jurusan" id="Jurusan" placeholder="Jurusan"/>
+			<input class="input" type="text" name="Jurusan" id="Jurusan" value="<?=$data['Jurusan']?>"/>
             <label for="Prodi">Prodi</label>
-			<input class="input" type="text" name="Prodi" id="Prodi" placeholder="Prodi" style="margin-bottom: 20px"/>
-		   <button type="submit" class="btn btn-simpan" name="simpan"> Simpan </button>
+			<input class="input" type="text" name="Prodi" id="Prodi" value="<?=$data['Prodi']?>" style="margin-bottom: 20px"/>
+		   <button type="submit" class="btn btn-simpan" name="edit"> Ubah </button>
 		</form>
 	   </div>
 	</div>
   <script>
-
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
         sidebarBtn.onclick = function() {

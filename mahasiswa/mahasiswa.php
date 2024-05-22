@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,33 +74,45 @@
 		   </tr>
 		</thead>
 		<tbody>
-		   <tr>
-			<td>Muhammad Hasib</td>
-			<td>2218017</td>
-			<td>A</td>
-            <td>Teknik Informatika</td>
-            <td>Teknik Industri</td>
-			<td>
-                <button type="button" class="btn btn-edit">
-                  <a href="#">Edit</a>
-                </button>
-                <button type="button" class="btn btn-delete"  onclick="konfirmasiHapus()">
-                  <a href="mahasiswa.php">Hapus</a>
-                </button>
-              </td>
-		   </tr>
+    <?php
+					include '../koneksi.php';
+					$sql = "SELECT * FROM tb_mahasiswa";
+					$result = mysqli_query($koneksi, $sql);
+					if (mysqli_num_rows($result) == 0) {
+						echo "
+			   <tr>
+				<td colspan='6' align='center'>
+                           Data Kosong
+                        </td>
+			   </tr>
+				";
+					}
+					while ($data = mysqli_fetch_assoc($result)) {
+						echo "
+                    <tr>
+                      <td>$data[Nama]</td>
+					            <td>$data[NIM]</td>
+                      <td>$data[Kelas]</td>
+                      <td>$data[Jurusan]</td>
+                      <td>$data[Prodi]</td>
+                      <td >
+                        <button class='btn-edit'>
+                        <a href='mahasiswa-edit.php?id=$data[id]'><i class='bx bx-edit'></i> Edit </a>
+                        </button>
+                         | 
+                        <button class='btn-delete'>
+                        <a href='mahasiswa-hapus.php?id=$data[id]'><i class='bx bx-trash'></i> Hapus </a>
+                        </button>
+                      </td>
+                    </tr>
+                  ";
+					}
+					?>
 		</tbody>
 	   </table>
     </div>
     </div>
     <script>
-function konfirmasiHapus() {
-        if (confirm("Apakah Anda yakin menghapus data ini?")) {
-          alert("Data berhasil dihapus");
-        } else {
-          alert("Penghapusan data gagal");
-        }
-      }
 
       let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

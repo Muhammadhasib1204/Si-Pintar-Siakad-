@@ -1,9 +1,24 @@
+<?php
+  include '../koneksi.php';
+  $id = $_GET['id'];
+  if(!isset($_GET['id'])) {
+    echo "
+      <script>
+        alert('Tidak ada ID yang Terdeteksi');
+        window.location = 'mahasiswa.php';
+      </script>
+    ";
+  }
 
+  $sql = "SELECT * FROM tb_mahasiswa WHERE id = '$id'";
+  $result = mysqli_query($koneksi, $sql);
+  $data = mysqli_fetch_assoc($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Halaman Tambah Data Mahasiswa</title>
+    <title>Halaman Hapus Data Mahasiswa</title>
     <link rel="stylesheet" href="../css/admin.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -55,25 +70,26 @@
       </div>
       <div class="profile-details">
         <span class="admin_name">Admin</span>
+        
       </div>
     </nav>
 	<div class="home-content">
-	  <h3>Data Mahasiswa</h3>
-	  <div class="form-login">
-		<form action="mahasiswa-proses.php" method="post" enctype="multipart/form-data">
-	  	    <label for="nama_mahasiswa">Nama Mahasiswa</label>
-			<input class="input" type="text" name="nama_mahasiswa" id="nama_mahasiswa" placeholder="Nama Mahasiswa"/>
- 		    <label for="nim_mahasiswa">NIM Mahasiswa</label>
-			<input class="input" type="text" name="nim_mahasiswa" id="nim_mahasiswa" placeholder="NIM Mahasiswa" />
-            <label for="kelas">Kelas</label>
-			<input class="input" type="text" name="kelas" id="kelas" placeholder="Kelas" />
-            <label for="Jurusan">Jurusan</label>
-			<input class="input" type="text" name="Jurusan" id="Jurusan" placeholder="Jurusan"/>
-            <label for="Prodi">Prodi</label>
-			<input class="input" type="text" name="Prodi" id="Prodi" placeholder="Prodi" style="margin-bottom: 20px"/>
-		   <button type="submit" class="btn btn-simpan" name="simpan"> Simpan </button>
-		</form>
-	   </div>
+    <h3>Hapus Data Mahasiswa</h3>
+         <div class="form-login">
+            <h4>Ingin Menghapus Data ?</h4>
+            <form
+              action="mahasiswa-proses.php"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <input type="hidden" name="id" value="<?= $data['id'] ?>">
+              <button type="submit" class="btn" name="hapus" style="margin-top: 50px;">
+			Yes
+		  </button>
+		  <button type="submit" class="btn" name="tidak">
+			No
+		  </button>
+            </form>
 	</div>
   <script>
 
