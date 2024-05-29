@@ -59,23 +59,20 @@
      <div class="home-content">
         <h3>Input Matakuliah</h3>
 	   <div class="form-login">
-		<form action="">
+     <form action="matkul-proses.php" method="post" enctype="multipart/form-data">
 		   <label for="nama_matakuliah">Nama Matakuliah</label>
 		   <input class="input" type="text" name="nama_matakuliah" id="nama_matakuliah" placeholder="Nama Matakuliah" />
 		   <label for="jumlah_sks">Jumlah SKS</label>
-			 <input class="input" type="number" name="jumlah_sks" id="jumlah_sks" placeholder="Jumlah SKS" />
+			 <input class="input" type="text" name="jumlah_sks" id="jumlah_sks" placeholder="Jumlah SKS" />
 		    <label for="jam_matakuliah">Jam Matakuliah</label>
 			<input class="input" type="text" name="jam_matakuliah" id="jam_matakuliah" placeholder="Jam Matakuliah" />
             <label for="ruangan_matkul">Ruangan Matakuliah</label>
 		   <input class="input" type="text" name="ruangan_matkul" id="ruangan_matkul" placeholder="Ruangan Matakuliah" style="margin-bottom: 20px" />
-		   <button type="submit" class="btn btn-simpan" name="simpan"  onclick="Simpan()"> Simpan </button>
+		   <button type="submit" class="btn btn-simpan" name="simpan"> Simpan </button>
 		</form>
 	   </div>
     </div>
     <script>
-      function Simpan() {
-      alert("Data Berhasil Disimpan");
-    }
 
       let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");

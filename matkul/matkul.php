@@ -61,6 +61,10 @@
 		<button type="button" class="btn btn-tambah">
 		   <a href="matkul_entry.php">Tambah Data</a>
 		</button>
+    <button type="button" class="btn btn-tambah">
+		   <a href="matkul-cetak.php">Cetak Data</a>
+		</button>
+    
 		<table class="table-data">
 		   <thead>
 			<tr>
@@ -72,34 +76,44 @@
 			</tr>
 		   </thead>
 		   <tbody>
-			<tr>
-			   <td>Pemrograman Website</td>
-			   <td>4</td>
-			   <td>9-12</td>
-               <td>III.1.4</td>
-			   <td>
-          <button type="button" class="btn btn-edit">
-            <a href="#">Edit</a>
-          </button>
-          <button type="button" class="btn btn-delete" onclick="konfirmasiHapus()">
-            <a href="matkul.php">Hapus</a>
-          </button>
-        </td>
-			</tr>
+			 <?php
+					include '../koneksi.php';
+					$sql = "SELECT * FROM tb_matkul";
+					$result = mysqli_query($koneksi, $sql);
+					if (mysqli_num_rows($result) == 0) {
+						echo "
+			   <tr>
+				<td colspan='5' align='center'>
+                           Data Kosong
+                        </td>
+			   </tr>
+				";
+					}
+					while ($data = mysqli_fetch_assoc($result)) {
+						echo "
+                    <tr>
+                      <td>$data[nama_matkul]</td>
+					            <td>$data[jumlah_sks]</td>
+                      <td>$data[jam_matkul]</td>
+                      <td>$data[ruangan_matkul]</td>
+                      <td >
+                        <button class='btn-edit'>
+                        <a href='matkul-edit.php?id=$data[id]'><i class='bx bx-edit'></i> Edit </a>
+                        </button>
+                         | 
+                        <button class='btn-delete'>
+                        <a href='matkul-hapus.php?id=$data[id]'><i class='bx bx-trash'></i> Hapus </a>
+                        </button>
+                      </td>
+                    </tr>
+                  ";
+					}
+					?>
 		   </tbody>
 		</table>
 	   </div>
     </div>
     <script>
-    function konfirmasiHapus() {
-        if (confirm("Apakah Anda yakin menghapus data ini?")) {
-          alert("Data berhasil dihapus");
-        } else {
-          alert("Penghapusan data gagal");
-        }
-      }
-
-
       let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
         sidebarBtn.onclick = function() {

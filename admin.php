@@ -1,3 +1,15 @@
+<?php 
+  include 'koneksi.php';
+  $sql_mhs = "SELECT COUNT(*) as total_mhs FROM tb_mahasiswa";
+  $result_mhs = $koneksi->query($sql_mhs);
+  $total_mhs = $result_mhs->fetch_assoc()['total_mhs'];
+ 
+  $sql_matkul = "SELECT COUNT(*) as total_matkul FROM tb_matkul";
+  $result_matkul = $koneksi->query($sql_matkul);
+  $total_matkul = $result_matkul->fetch_assoc()['total_matkul'];
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,6 +73,27 @@
        <div class="overview-boxes">
           <h2>Selamat Datang Di Halaman Admin!</h2>
           <div id="tanggal"></div>
+          <div class="cardBox">
+                <div class="card">
+                    <div>
+                        <div class="numbers"><?php echo $total_mhs; ?></div>
+                        <div class="cardName">Mahasiswa</div>
+                    </div>
+                    <div class="iconBx">
+                      <i class='bx bx-body'></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div>
+                        <div class="numbers"><?php echo $total_matkul; ?></div>
+                        <div class="cardName">Matkul</div>
+                    </div>
+                    <div class="iconBx">
+                    <i class='bx bx-book-content'></i>
+                    </div>
+                </div>
+                </div>
+            </div>
         </div>
       </div>
     </div>
@@ -90,5 +123,45 @@
       sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
   }
   </script>
+  <style>
+    .cardBox {
+	position: relative;
+	width: 100%;
+	padding: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-gap: 50px;
+  }
+  
+  .cardBox .card {
+	position: relative;
+	padding: 20px;
+	border-radius: 20px;
+	display: flex;
+	justify-content: space-between;	
+	cursor: pointer;
+	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.20);
+  }
+  
+  .cardBox .card .numbers {
+	position: relative;
+	font-weight: 500;
+	font-size: 2.5rem;
+  }
+  
+  .cardBox .card .cardName {
+	font-size: 1.3rem;
+	margin-top: 5px;
+  }
+  
+  .cardBox .card .iconBx {
+	font-size: 4.5rem;
+	color: darkslateblue;
+  }
+
+  .cardBox .card:hover {
+	background: #c7c0e9;
+  }
+  </style>
 </body>
 </html>
